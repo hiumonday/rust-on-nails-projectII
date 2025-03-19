@@ -6,7 +6,7 @@ services:
     environment:
       POSTGRES_PASSWORD: testpassword
       POSTGRES_USER: postgres
-      POSTGRES_DATABASE: nails
+      POSTGRES_DB: nails
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U postgres"]
       interval: 10s
