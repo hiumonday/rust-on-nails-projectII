@@ -1,6 +1,7 @@
 mod config;
 mod errors;
 mod root;
+mod static_files;
 
 use std::net::SocketAddr;
 
@@ -16,6 +17,7 @@ async fn main() {
     // build our application with a route
     let app = Router::new()
         .route("/", get(root::loader))
+        .route("/static/*path", get(static_files::static_path))
         .layer(LiveReloadLayer::new())
         .layer(Extension(config))
         .layer(Extension(pool.clone()));
