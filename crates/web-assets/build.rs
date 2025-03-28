@@ -5,7 +5,12 @@ use std::path::PathBuf;
 
 fn main() {
     let static_out_dir = PathBuf::from(env::var("OUT_DIR").unwrap());
-    let asset_dirs = vec![PathBuf::from("./images"), PathBuf::from("./dist")];
+
+    let asset_dirs = vec![
+        PathBuf::from("./js"),
+        PathBuf::from("./images"),
+        PathBuf::from("./dist"),
+    ];
 
     let exclude_paths: Vec<PathBuf> = vec![];
 

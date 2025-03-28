@@ -12,3 +12,7 @@ INSERT INTO
     users (email)
 VALUES
     (:email);
+
+--! delete_user
+DELETE FROM users
+WHERE email = :email;

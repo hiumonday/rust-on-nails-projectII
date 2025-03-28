@@ -3,3 +3,6 @@ watch:
 
 tailwind:
     cd /workspace/crates/web-assets && tailwind-extra -i ./input.css -o ./dist/tailwind.css --watch
+
+wasm:
+    cd /workspace/crates/web-csr && wasm-pack build --target web --out-dir dist

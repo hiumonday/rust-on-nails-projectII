@@ -43,3 +43,18 @@ pub async fn new_user_action(
     // 303 redirect to users list
     Ok(Redirect::to("/").into_response())
 }
+
+pub async fn delete_user_action(
+    Extension(pool): Extension<db::Pool>,
+    Form(form): Form<SignUp>,
+) -> Result<Response, CustomError> {
+    let client = pool.get().await?;
+
+    let email = form.email;
+    let _ = db::queries::users::delete_user()
+        .bind(&client, &email.as_str())
+        .await?;
+
+    // 303 redirect to users list
+    Ok(Redirect::to("/").into_response())
+}

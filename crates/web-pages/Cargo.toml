@@ -4,6 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+daisy_rsx = "0.1"
 db = { version = "0.1.0", path = "../db" }
 dioxus = { version = "0.6", default-features = false, features = [
     "macro",

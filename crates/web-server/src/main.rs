@@ -17,6 +17,7 @@ async fn main() {
         .route("/", get(root::loader))
         .route("/new_user", post(root::new_user_action))
         .route("/static/*path", get(static_files::static_path))
+        .route("/delete_user", post(root::delete_user_action))
         .layer(LiveReloadLayer::new())
         .layer(Extension(config))
         .layer(Extension(pool.clone()));
