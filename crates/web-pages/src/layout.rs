@@ -6,7 +6,7 @@ pub fn Layout(title: String, children: Element) -> Element {
     rsx! {
         BaseLayout { 
             title,
-            stylesheets: vec![],
+            stylesheets: vec![web_assets::files::tailwind_css.name.to_string()],
             header: rsx!(),
             sidebar: rsx!(),
             sidebar_header: rsx!(),
