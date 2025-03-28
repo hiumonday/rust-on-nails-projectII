@@ -1,4 +1,4 @@
-use crate::{layout::Layout, render_page as render};
+use crate::{layout::Layout, render};
 use db::User;
 use dioxus::prelude::*;
 use web_assets::files::favicon_svg;
@@ -18,7 +18,6 @@ pub fn index(users: Vec<User>) -> String {
                     for user in users {
                         tr {
                             td {
-                                // 👇 We added the image
                                 img {
                                     src: favicon_svg.name,
                                     width: "16",
@@ -34,6 +33,15 @@ pub fn index(users: Vec<User>) -> String {
                         }
                     }
                 }
+            }
+
+            // 👇 this is our new form
+            form {
+                action: "/new_user",
+                method: "POST",
+                label { r#for: "user_email", "Email:" }
+                input { id: "user_email", name: "email", r#type: "email", required: "true" }
+                button { "Submit" }
             }
         }
     };

@@ -9,7 +9,7 @@ axum = { version = "0.7", default-features = false, features = [
     "http1",
     "tokio",
 ] }
-axum-extra = { version = "0.9", features = ["typed-routing"] }
+axum-extra = { version = "0.9", features = ["typed-routing", "form"] }
 db = { version = "0.1.0", path = "../db" }
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", default-features = false, features = [
@@ -19,5 +19,5 @@ tokio = { version = "1", default-features = false, features = [
 ] }
 tokio-util = { version = "0.7", default-features = false, features = ["io"] }
 tower-livereload = "0.9"
-web-page = { version = "0.1.0", path = "../web-pages" }
+web-pages = { version = "0.1.0", path = "../web-pages" }
 web-assets = { version = "0.1.0", path = "../web-assets" }

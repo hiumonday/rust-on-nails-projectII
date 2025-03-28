@@ -1673,7 +1673,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "web-page"
+name = "web-pages"
 version = "0.1.0"
 dependencies = [
  "db",
@@ -1694,7 +1694,7 @@ dependencies = [
  "tokio-util",
  "tower-livereload",
  "web-assets",
- "web-page",
+ "web-pages",
 ]
 
 [[package]]
