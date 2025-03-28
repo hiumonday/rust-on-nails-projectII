@@ -2,8 +2,8 @@ use axum::{
     http::StatusCode,
     response::{IntoResponse, Response},
 };
+use db::{PoolError, TokioPostgresError};
 use std::fmt;
-use db::{TokioPostgresError, PoolError};
 
 #[derive(Debug)]
 pub enum CustomError {

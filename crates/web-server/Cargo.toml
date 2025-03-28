@@ -8,8 +8,9 @@ axum = { version = "0.7", default-features = false, features = [
     "json",
     "http1",
     "tokio",
+    "macros",
 ] }
-axum-extra = { version = "0.9", features = ["typed-routing"] }
+axum-extra = { version = "0.9", features = ["typed-routing", "form"] }
 db = { version = "0.1.0", path = "../db" }
 serde = { version = "1", features = ["derive"] }
 tokio = { version = "1", default-features = false, features = [
@@ -19,5 +20,7 @@ tokio = { version = "1", default-features = false, features = [
 ] }
 tokio-util = { version = "0.7", default-features = false, features = ["io"] }
 tower-livereload = "0.9"
-web-page = { version = "0.1.0", path = "../web-pages" }
+tower-http = { version = "0.5.0", features = ["fs"] }
+validator = { version = "0.16", features = ["derive"] }
+web-pages = { version = "0.1.0", path = "../web-pages" }
 web-assets = { version = "0.1.0", path = "../web-assets" }
