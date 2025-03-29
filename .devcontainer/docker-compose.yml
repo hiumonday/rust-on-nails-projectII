@@ -25,6 +25,43 @@ services:
       - ..:/workspace:cached
       # We need this so docker in docker works 
       - /var/run/docker.sock:/var/run/docker.sock
+      - node_modules:/workspace/crates/asset-pipeline/node_modules # Set target as a volume for performance.
 
     # Overrides default command so things don't shut down after the process ends.
     command: sleep infinity
+  
+   # First let's create a postgres database
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: testpassword
+      POSTGRES_USER: postgres
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # As an example we'll add login/registration to 
+  # https://hub.docker.com/r/containous/whoami
+  whoami:
+    image: containous/whoami
+
+  # Configure Authn Proxy to listen on port 9090 and reverse proxy nginx on port 80.
+  barricade:
+    image: purtontech/barricade
+    environment:
+        # This secret key is used to encrypt cookies.
+        SECRET_KEY: 190a5bf4b3cbb6c0991967ab1c48ab30790af876720f1835cbbf3820f4f5d949
+        DATABASE_URL: postgresql://postgres:testpassword@db:5432/nails?sslmode=disable
+        FORWARD_URL: whoami
+        FORWARD_PORT: 3000
+        # Any requests that meet the following regulkar expressions
+        # with pass through. i.e. They don't require auth.
+        SKIP_AUTH_FOR: /static*
+        REDIRECT_URL: '/'
+    ports:
+      - "9091:9090"
+    depends_on:
+      db:
+        condition: service_healthy

@@ -2,7 +2,10 @@
 resolver = "2"
 
 members = [
-    "crates/*",
+    "crates/web-assets",
+    "crates/web-pages",
+    "crates/web-server",
+    "crates/web-csr",
 ]
 
 # Remove debug from the exe for faster compile times

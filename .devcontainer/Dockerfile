@@ -7,5 +7,6 @@ COPY .bash_aliases /home/vscode/.bash_aliases
 
 # Enable our git hooks and set the permisisons on docker sock.
 RUN echo 'git config core.hooksPath /vscode/.devcontainer/.githooks' >> ~/.bashrc
+RUN sudo mkdir -p /workspace/crates/asset-pipeline/node_modules && sudo chown $USERNAME:$USERNAME /workspace/crates/asset-pipeline/node_modules
 
 ARG USERNAME=vscode

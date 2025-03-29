@@ -7,3 +7,5 @@ package.json
 package-lock.json
 target
 dist
+node_modules
+.parcel-cache
