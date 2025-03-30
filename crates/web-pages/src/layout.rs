@@ -21,6 +21,7 @@ pub fn Layout(title: String, children: Element, selected_item: SideBar) -> Eleme
             title,
             stylesheets: vec![web_assets::files::tailwind_css.name.to_string()],
             js_href: htmx_2_0_3_js.name,
+            scripts: sidebar_js.name,
             header: rsx!(
                 nav {
                     aria_label: "breadcrumb",
@@ -115,6 +116,7 @@ pub struct BaseLayoutProps {
     fav_icon_src: Option<String>,
     stylesheets: Vec<String>,
     js_href: Option<String>,
+    scripts: Option<String>,
     header: Element,
     children: Element,
     sidebar: Element,
@@ -150,6 +152,11 @@ pub fn BaseLayout(props: BaseLayoutProps) -> Element {
                 script {
                     "type": "module",
                     src: "{js_href}"
+                }
+            }
+            if let Some(scripts) = props.scripts {
+                script {
+                    src: "{scripts}"
                 }
             }
             if let Some(fav_icon_src) = props.fav_icon_src {
