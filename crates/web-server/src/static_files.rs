@@ -4,7 +4,7 @@ use axum::response::IntoResponse;
 use axum_extra::routing::TypedPath;
 use serde::Deserialize;
 use tokio_util::io::ReaderStream;
-use web_assets::files::StaticFile;
+use assets::files::{index_css_map, index_js_map, StaticFile};
 
 #[derive(TypedPath, Deserialize)]
 #[typed_path("/static/*path")]

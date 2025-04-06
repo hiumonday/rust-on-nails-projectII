@@ -2,7 +2,7 @@ use crate::{layout::{Layout, SideBar}, render};
 use daisy_rsx::*;
 use db::User;
 use dioxus::prelude::*;
-use web_assets::files::favicon_svg;
+use assets::files::favicon_svg;
 
 pub fn index(users: Vec<User>) -> String {
     let page = rsx! {
@@ -13,6 +13,10 @@ pub fn index(users: Vec<User>) -> String {
                 heading: "Welcome To Your Application",
                 visual: favicon_svg.name,
                 description: "This is just the beginning",
+            }
+            div {
+                class: "mt-6",
+                dangerous_inner_html: "<hello-world name=\"Your Name\" color=\"purple\"></hello-world>",
             }
             Card {
                 class: "card-bordered mt-12 has-data-table",

@@ -20,5 +20,5 @@ tokio = { version = "1", default-features = false, features = [
 tokio-util = { version = "0.7", default-features = false, features = ["io"] }
 tower-livereload = "0.9"
 web-pages = { version = "0.1.0", path = "../web-pages" }
-web-assets = { version = "0.1.0", path = "../web-assets" }
+assets = { version = "0.1.0", path = "../asset-pipeline" }
 validator = { version = "0.15", features = ["derive"] }

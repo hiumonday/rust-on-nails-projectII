@@ -6,6 +6,7 @@ members = [
     "crates/web-pages",
     "crates/web-server",
     "crates/web-csr",
+    "crates/asset-pipeline",
 ]
 
 # Remove debug from the exe for faster compile times

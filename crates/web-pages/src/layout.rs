@@ -1,7 +1,7 @@
 #![allow(non_snake_case)]
 use daisy_rsx::*;
 use dioxus::prelude::*;
-use web_assets::files::*;
+use assets::files::*;
 
 #[derive(PartialEq, Clone, Eq, Debug)]
 pub enum SideBar {
@@ -19,9 +19,9 @@ pub fn Layout(title: String, children: Element, selected_item: SideBar) -> Eleme
     rsx! {
         BaseLayout { 
             title,
-            stylesheets: vec![web_assets::files::tailwind_css.name.to_string()],
+            stylesheets: vec![assets::files::tailwind_css.name.to_string()],
             js_href: htmx_2_0_3_js.name,
-            scripts: sidebar_js.name,
+            scripts: index_js.name,
             header: rsx!(
                 nav {
                     aria_label: "breadcrumb",
