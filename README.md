@@ -8,9 +8,13 @@ A full stack architecture for web development with Rust.
 
 Run inside the supplied `devcontainer`. You'll need to fetch the template which is a git submodule.
 
-1. git submodule init
-1. git submodule update
-1. `cd rust-on-nails.com`
-1. `zs` which is an alias for `zola serve --interface 0.0.0.0 --port 2222`
+Build asset
+1. cd crates/asset-pipeline
+2. npm run release
 
-The access the site from http://localhost:2222
+Run
+1. dbmate up 
+2. just watch
+
+
+The access the site from http://localhost:3000
